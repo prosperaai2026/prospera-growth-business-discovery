@@ -1,8 +1,15 @@
 const form = document.querySelector("#discoveryForm");
 const statusEl = document.querySelector("#formStatus");
 const submitButton = form.querySelector("button[type='submit']");
+const successScreen = document.querySelector("#successScreen");
 const successMessage =
-  "Thank you! Your answers have been submitted successfully. We will review your information and contact you soon.";
+  "Assessment successfully received.";
+
+function showSuccessScreen() {
+  form.hidden = true;
+  successScreen.hidden = false;
+  successScreen.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -19,6 +26,7 @@ form.addEventListener("submit", async (event) => {
     statusEl.className = "form-status success";
     statusEl.textContent = successMessage;
     form.reset();
+    showSuccessScreen();
     return;
   }
 
@@ -41,13 +49,13 @@ form.addEventListener("submit", async (event) => {
     form.reset();
     statusEl.className = "form-status success";
     statusEl.textContent = successMessage;
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    showSuccessScreen();
   } catch (error) {
     statusEl.className = "form-status error";
     statusEl.textContent =
       "We could not submit the form from this browser. Please check your connection and try again.";
   } finally {
     submitButton.disabled = false;
-    submitButton.textContent = "Submit Business Discovery Form";
+    submitButton.textContent = "Submit My Business Assessment";
   }
 });
