@@ -48,6 +48,19 @@ This repository contains reusable systems for local business growth including:
 - Reporting
 - Client Assets
 
+## Future Module: Email Manager
+
+The Email Manager module is a planned future system for organizing incoming
+PROSPERA GROWTH emails from leads, forms, clients, invoices, estimates,
+proposals, receipts, payments, marketing, and low priority messages.
+
+The module will be designed with safety first: labeling and review workflows
+should happen before any destructive action. Planning documentation lives at:
+
+```text
+docs/email-manager-plan.md
+```
+
 ## Project Structure
 
 Every client must have their own folder under:
